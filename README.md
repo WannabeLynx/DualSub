@@ -29,14 +29,6 @@ free.
 
 **From the Chrome Web Store:** _(link coming once published)_
 
-**Manually (developer mode):**
-1. Download or clone this repo.
-2. Go to `chrome://extensions` and turn on **Developer mode**.
-3. Click **Load unpacked** and select the folder containing `manifest.json`.
-4. Open a video, press play, click the toolbar icon, and pick your two languages.
-
-> Requires Chrome 111 or newer.
-
 ## How to use
 
 1. Open a title and press play.

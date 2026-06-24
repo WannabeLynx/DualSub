@@ -5,6 +5,12 @@
   "description": "See two subtitle languages at the same time while watching Netflix. Great for language learning and bilingual viewing.",
   "host_permissions": ["*://*.netflix.com/*", "*://*.nflxvideo.net/*"],
   "permissions": ["storage", "activeTab"],
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
   "background": {
     "service_worker": "src/background/service-worker.js"
   },
@@ -30,6 +36,12 @@
   ],
   "action": {
     "default_popup": "src/popup/popup.html",
-    "default_title": "Dual Subtitles"
+    "default_title": "Dual Subtitles",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
   }
 }
