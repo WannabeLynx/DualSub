@@ -1,11 +1,15 @@
 # Dual Subtitles — Two Subtitle Languages at Once
 
-A free Chrome extension that shows **two subtitles at the same time** while you watch
+A **free** Chrome extension that shows **two subtitles at the same time** while you watch
 **Netflix** — for example your native language together with the language you're learning.
 Also called dual subtitles, double subtitles, or bilingual subtitles.
 
 > Watch with two languages on screen at once. Great for **language learning** and
 > bilingual households.
+
+**No AI, no machine translation.** It uses the real, official subtitle tracks the title
+already provides — so the wording is accurate, not auto-generated. And it's completely
+free.
 
 <!-- Add a screenshot here once you have one — it really helps on GitHub and in search:
 ![Two subtitle languages shown at once](docs/screenshot.png) -->
@@ -13,7 +17,8 @@ Also called dual subtitles, double subtitles, or bilingual subtitles.
 ## Features
 
 - 🎬 **Two subtitles at once** — show two languages stacked on screen, perfectly in sync
-- 🌍 **Any pair the title offers** — uses the official subtitle tracks, no machine translation
+- 💯 **Free, and no AI** — uses the real official subtitle tracks (accurate human translations), never machine translation
+- 🌍 **Any pair the title offers** — pick from the languages the title actually ships with
 - 🔝 Choose which language sits on top
 - 🔠 Adjustable font size and position
 - 🪟 Optional background behind the text for readability
