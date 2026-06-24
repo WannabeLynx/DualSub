@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Netflix Dual Subtitles",
+  "name": "Dual Subtitles – Two Languages at Once",
   "version": "0.1.0",
-  "description": "Show two subtitle languages at once on Netflix, sourced from the title's official subtitle tracks.",
+  "description": "See two subtitle languages at the same time while watching Netflix. Great for language learning and bilingual viewing.",
   "host_permissions": ["*://*.netflix.com/*", "*://*.nflxvideo.net/*"],
   "permissions": ["storage", "activeTab"],
   "background": {
@@ -30,6 +30,6 @@
   ],
   "action": {
     "default_popup": "src/popup/popup.html",
-    "default_title": "Netflix Dual Subtitles"
+    "default_title": "Dual Subtitles"
   }
 }
