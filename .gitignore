@@ -1,0 +1,44 @@
+# ---- private / internal (never publish) ----
+# planning docs, store listing, assistant memory, anything not part of the extension
+NotNeeded/
+
+# ---- secrets & credentials (never commit) ----
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+secrets.json
+credentials.json
+*.local
+
+# ---- packaged builds ----
+*.zip
+*.crx
+*.pem.bak
+dist/
+build/
+web-ext-artifacts/
+
+# ---- dependencies (if ever added) ----
+node_modules/
+package-lock.json.bak
+
+# ---- logs ----
+*.log
+npm-debug.log*
+yarn-error.log*
+
+# ---- editors / IDEs ----
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ---- OS noise ----
+.DS_Store
+Thumbs.db
+desktop.ini

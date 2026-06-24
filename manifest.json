@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Netflix Dual Subtitles",
+  "version": "0.1.0",
+  "description": "Show two subtitle languages at once on Netflix, sourced from the title's official subtitle tracks.",
+  "host_permissions": ["*://*.netflix.com/*", "*://*.nflxvideo.net/*"],
+  "permissions": ["storage", "activeTab"],
+  "background": {
+    "service_worker": "src/background/service-worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.netflix.com/*"],
+      "js": ["src/inject/manifest-hook.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["*://*.netflix.com/*"],
+      "js": [
+        "src/shared/messages.js",
+        "src/content/site-adapters/types.js",
+        "src/content/site-adapters/netflix.js",
+        "src/content/subtitle/parser.js",
+        "src/content/renderer.js",
+        "src/content/bridge.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "action": {
+    "default_popup": "src/popup/popup.html",
+    "default_title": "Netflix Dual Subtitles"
+  }
+}
