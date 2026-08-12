@@ -4,9 +4,6 @@
   const NS = (g.DualSub = g.DualSub || {});
 
   NS.MSG = {
-    // page -> content script
-    MANIFEST_FOUND: "DUALSUB_MANIFEST_FOUND",
-
     // popup <-> content script
     GET_STATE: "DUALSUB_GET_STATE",
     STATE_CHANGED: "DUALSUB_STATE_CHANGED",
@@ -16,11 +13,16 @@
     // content script <-> worker
     LOAD_SETTINGS: "DUALSUB_LOAD_SETTINGS",
     SAVE_SETTINGS: "DUALSUB_SAVE_SETTINGS",
-    FETCH_TRACK: "DUALSUB_FETCH_TRACK",
+    SUBS_LIST: "DUALSUB_SUBS_LIST",   // list captured subtitle files
+    GET_SUB: "DUALSUB_GET_SUB",       // fetch one captured file's text (by id or lang)
+    CLEAR_SUBS: "DUALSUB_CLEAR_SUBS", // drop captures (on title change)
   };
 
   // tag on our postMessage payloads so we ignore netflix's own messages
   NS.TAG = "__dualsub__";
+
+  // flip to true for verbose console logging while developing
+  NS.DEBUG = false;
 
   NS.DEFAULTS = {
     preferredPrimaryLang: "en",

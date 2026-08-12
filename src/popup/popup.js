@@ -45,7 +45,7 @@
   function render(state) {
     if (!state || !state.ready || !state.tracks || !state.tracks.length) {
       els.status.textContent =
-        "Open a Netflix title and press play to load its subtitle tracks, then reopen this popup.";
+        "Open a Netflix title and press play — the subtitle options will appear here.";
       els.main.style.display = "none";
       return;
     }
