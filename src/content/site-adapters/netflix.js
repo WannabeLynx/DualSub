@@ -1,65 +1,11 @@
-// all the netflix-specific bits live here: manifest shape + dom selectors.
+// Netflix-specific DOM bits. Track listing/switching now goes through Netflix's player API
+// (see page-agent.js); this adapter just locates the video, the element that goes
+// fullscreen, and the native caption node so the renderer can attach and hide them.
 ;(function (g) {
   const NS = (g.DualSub = g.DualSub || {});
 
-  // the url has shown up in two shapes depending on the netflix build
-  function pickUrl(d) {
-    if (!d) return null;
-    if (d.downloadUrls && typeof d.downloadUrls === "object") {
-      const vals = Object.values(d.downloadUrls);
-      if (vals.length) return vals[0];
-    }
-    if (Array.isArray(d.urls) && d.urls.length) {
-      const u = d.urls[0];
-      return typeof u === "string" ? u : u.url || null;
-    }
-    return null;
-  }
-
-  // grab a webvtt url if there's one, else fall back to ttml/dfxp
-  function extractFormats(ttDownloadables) {
-    const formats = {};
-    if (!ttDownloadables) return formats;
-    for (const profile of Object.keys(ttDownloadables)) {
-      const url = pickUrl(ttDownloadables[profile]);
-      if (!url) continue;
-      const p = profile.toLowerCase();
-      if (p.indexOf("webvtt") !== -1) {
-        if (!formats.webvtt) formats.webvtt = url;
-      } else if (p.indexOf("dfxp") !== -1 || p.indexOf("imsc") !== -1 || p.indexOf("ttml") !== -1) {
-        if (!formats.ttml) formats.ttml = url;
-      }
-    }
-    return formats;
-  }
-
-  function normalizeTracks(rawTracks) {
-    const out = [];
-    for (const t of rawTracks || []) {
-      if (t.isNoneTrack) continue; // the "off" entry
-      const formats = extractFormats(t.ttDownloadables);
-      if (!formats.webvtt && !formats.ttml) continue;
-      out.push({
-        id: t.new_track_id || t.id || t.language + ":" + (t.trackType || ""),
-        lang: t.language || "und",
-        label: t.languageDescription || t.language || "Unknown",
-        kind: t.rawTrackType === "closedcaptions" ? "closedcaptions" : "subtitles",
-        isForced: !!t.isForcedNarrative,
-        formats: formats,
-      });
-    }
-    return out;
-  }
-
   const adapter = {
     name: "netflix",
-
-    normalizeManifest(msg) {
-      return {
-        movieId: String(msg.movieId),
-        tracks: normalizeTracks(msg.timedtexttracks),
-      };
-    },
 
     getVideo() {
       return document.querySelector("video");
