@@ -100,6 +100,10 @@
       const bottom = d.primaryOnTop ? this.rowSecondary : this.rowPrimary;
       this.overlay.appendChild(top);
       this.overlay.appendChild(bottom);
+
+      top.style.display = "";
+      bottom.style.display = "block";
+      bottom.style.minHeight = "1.25em";
       top.style.marginBottom = (d.gap || 4) + "px";
       bottom.style.marginBottom = "0px";
     }
