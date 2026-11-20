@@ -103,7 +103,7 @@
 
       top.style.display = "";
       bottom.style.display = "block";
-      bottom.style.minHeight = "1.25em";
+      bottom.style.minHeight = "1lh";
       top.style.marginBottom = (d.gap || 4) + "px";
       bottom.style.marginBottom = "0px";
     }
