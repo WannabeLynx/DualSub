@@ -39,7 +39,7 @@
         isNone: !!t.isNoneTrack,
         forced: !!t.isForcedNarrative,
         image: !!t.isImageBased,
-        kind: t.rawTrackType === "closedcaptions" ? "closedcaptions" : "subtitles",
+        kind: t.rawTrackType?.toLowerCase() === "closedcaptions" ? "closedcaptions" : "subtitles",
         type: t.trackType || "",
       };
     });
